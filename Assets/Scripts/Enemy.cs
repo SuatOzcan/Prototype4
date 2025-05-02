@@ -28,5 +28,6 @@ public class Enemy : MonoBehaviour
         // another comment.
         // more comments.
         // one more.
+        // bir yorum daha.
     }
 }
