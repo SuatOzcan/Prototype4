@@ -25,5 +25,6 @@ public class Enemy : MonoBehaviour
         _enemiesRigidbody.AddForce( _speed * Time.deltaTime * _enemyforceVector3.normalized ,
                                                                 ForceMode.VelocityChange);
         //comment
+        // another comment.
     }
 }
