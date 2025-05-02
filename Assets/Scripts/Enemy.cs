@@ -24,5 +24,6 @@ public class Enemy : MonoBehaviour
         Vector3 _enemyforceVector3 = _player.transform.position - transform.position;
         _enemiesRigidbody.AddForce( _speed * Time.deltaTime * _enemyforceVector3.normalized ,
                                                                 ForceMode.VelocityChange);
+        //comment
     }
 }
