@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class RotateCamera : MonoBehaviour
 {
     [SerializeField]
-    private float rotationSpeed = 100.0f;
+    private float _rotationSpeed = 100.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +18,6 @@ public class RotateCamera : MonoBehaviour
     void Update()
     {
         float horizontalinput = Input.GetAxis("Horizontal");
-        transform.Rotate( Vector3.up , horizontalinput * rotationSpeed * Time.deltaTime);
+        transform.Rotate( Vector3.up , horizontalinput * _rotationSpeed * Time.deltaTime);
     }
 }
