@@ -21,7 +21,8 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 forceVector3 = _player.transform.position - transform.position;
-        _enemiesRigidbody.AddForce( forceVector3 , ForceMode.VelocityChange);
+        Vector3 _enemyforceVector3 = _player.transform.position - transform.position;
+        _enemiesRigidbody.AddForce( _speed * Time.deltaTime * _enemyforceVector3.normalized ,
+                                                                ForceMode.VelocityChange);
     }
 }
