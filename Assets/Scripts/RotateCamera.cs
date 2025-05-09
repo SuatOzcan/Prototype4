@@ -18,6 +18,7 @@ public class RotateCamera : MonoBehaviour
     void Update()
     {
         float horizontalinput = Input.GetAxis("Horizontal");
-        transform.Rotate( Vector3.up , horizontalinput * _rotationSpeed * Time.deltaTime);
+        float reverseDirection = - horizontalinput;
+        transform.Rotate( Vector3.up , reverseDirection * _rotationSpeed * Time.deltaTime);
     }
 }

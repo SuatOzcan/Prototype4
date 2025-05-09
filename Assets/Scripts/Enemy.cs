@@ -20,9 +20,9 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         Vector3 _enemyFollowVector3 = _player.transform.position - transform.position;
-        //_enemiesRigidbody.AddForce( _speed * Time.deltaTime * _enemyforceVector3.normalized ,
-        //                                                        ForceMode.VelocityChange);
-        _enemiesRigidbody.transform.Translate(_speed * Time.deltaTime 
-                                                                                * _enemyFollowVector3.normalized);
+        _enemiesRigidbody.AddForce(_speed * Time.deltaTime * _enemyFollowVector3.normalized,
+                                                                ForceMode.VelocityChange);
+        //_enemiesRigidbody.transform.Translate(_speed * Time.deltaTime 
+        //                                                                        * _enemyFollowVector3.normalized);
     }
 }

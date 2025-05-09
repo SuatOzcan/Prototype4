@@ -22,14 +22,14 @@ public class PlayerController : MonoBehaviour
     {
         float verticalInput = Input.GetAxis("Vertical");
         Vector3 forwardDirection = _focalPoint.transform.forward;
-        float horizontalInput = Input.GetAxis("Horizontal");
-        Vector3 rightDirection = _focalPoint.transform.right;
-        //_playersRigidbody.AddForce( _speed * verticalInput * Time.deltaTime * forwardDirection,
-        //                                                    ForceMode.VelocityChange);
+        //float horizontalInput = Input.GetAxis("Horizontal");
+        //Vector3 rightDirection = _focalPoint.transform.right;
+        _playersRigidbody.AddForce(_speed * verticalInput * Time.deltaTime * forwardDirection,
+                                                            ForceMode.Impulse);
 
-        transform.Translate(_speed * verticalInput * Time.deltaTime * forwardDirection);
+        //transform.Translate(_speed * verticalInput * Time.deltaTime * forwardDirection);
         // The same controls move both the camera and the ball. Yet, we have more control over the ball
         // than the method using the rigidbody.
-        transform.Translate(_speed * horizontalInput* Time.deltaTime * rightDirection);
+        //transform.Translate(_speed * horizontalInput * Time.deltaTime * rightDirection);
     }
 }
