@@ -7,9 +7,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField]
     private float _speed = 3.0f;
-    [SerializeField]
     private GameObject _player;
-    [SerializeField]
     private Rigidbody _enemiesRigidbody;
     // Start is called before the first frame update
     void Start()
@@ -24,11 +22,5 @@ public class Enemy : MonoBehaviour
         Vector3 _enemyforceVector3 = _player.transform.position - transform.position;
         _enemiesRigidbody.AddForce( _speed * Time.deltaTime * _enemyforceVector3.normalized ,
                                                                 ForceMode.VelocityChange);
-        //comment
-        // another comment.
-        // more comments.
-        // one more.
-        // bir yorum daha.
-        // bir tane daha.
     }
 }
