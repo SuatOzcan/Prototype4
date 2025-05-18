@@ -6,17 +6,34 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject _enemyPrefab;
+    [SerializeField]
+    private GameObject _powerupPrefab;
+
     private float _spawnRange = 9.0f;
+    [SerializeField]
+    private int _enemiesToSpawn = 3;
+    private int _enemyCount;
+    private int _powerUpCount = 1;
+
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating(nameof(GenerateEnemy), 0.0f, 5.0f);
+        SpawnEnemyWave(_enemiesToSpawn);
+        //InvokeRepeating(nameof(GenerateEnemy), 0.0f, 5.0f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        _enemyCount = FindObjectsOfType<Enemy>().Length;
+
+        if(_enemyCount == 0)
+        {
+            ++_enemiesToSpawn;
+            ++_powerUpCount;
+            GeneratePowerUp();
+            SpawnEnemyWave(_enemiesToSpawn);
+        }
     }
 
     Vector3 GenerateSpawnPosition()
@@ -30,5 +47,17 @@ public class SpawnManager : MonoBehaviour
     void GenerateEnemy()
     {
         Instantiate(_enemyPrefab, GenerateSpawnPosition(), _enemyPrefab.transform.rotation);
+    } 
+    void GeneratePowerUp()
+    {
+        Instantiate(_powerupPrefab, GenerateSpawnPosition(), _enemyPrefab.transform.rotation);
+    }
+
+    void SpawnEnemyWave(int enemiesToSpawn)
+    {
+        for (int i = 0; i < enemiesToSpawn; i++)
+        {
+            GenerateEnemy();
+        }
     }
 }
