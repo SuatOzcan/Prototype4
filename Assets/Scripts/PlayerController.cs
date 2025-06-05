@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,7 +18,7 @@ public class PlayerController : MonoBehaviour
     private GameObject _powerUpIndicator;
     [SerializeField]
     private float powerupTimer = 7.0f;
-
+    public Button restartButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -73,6 +75,11 @@ public class PlayerController : MonoBehaviour
             //StartCoroutine(nameof(VoidMethodForRoutine));
             StartCoroutine(PowerUpCountDownRoutine());
         }
+
+        if(other.CompareTag("Net"))
+        {
+            restartButton.gameObject.SetActive(true);
+        }
     }
     
     private void OnCollisionEnter(Collision collision)
@@ -100,4 +107,7 @@ public class PlayerController : MonoBehaviour
         _hasPowerUp = false;
         _powerUpIndicator.SetActive(false);
     }
+
+    
+
 }
